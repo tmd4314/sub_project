@@ -420,6 +420,9 @@ public class StoreMain {
 		String productName = scn.nextLine();
 		System.out.print("구매할 가격지불>> ");
 		String price = scn.nextLine();
+		if(productName.isBlank() || price.isBlank()) {
+			System.out.println("항목을 입력해주세요.");
+		}
 		
 		if(pdao.check(productName, Integer.parseInt(price))) {
 			pdao.updatePurchase(productName);
