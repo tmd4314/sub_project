@@ -398,7 +398,7 @@ public class StoreMain {
 	}
 	
 	private void delete() {
-		System.out.println("상품코드 입력>> ");
+		System.out.print("상품코드 입력>> ");
 		String productCode = scn.nextLine();
 		if(productCode.isBlank()) {
 			System.out.println("상품코드를 반드시 입력하세요.");
