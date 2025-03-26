@@ -248,7 +248,7 @@ public class StoreMain {
 	private void restock() {
 		System.out.print("상품코드 입력>> ");
 		String productCode = scn.nextLine();
-		System.out.print("입고할 재고 입력>> ");
+		System.out.print("입고할 재고량 입력>> ");
 		String quantity = scn.nextLine();
 		if(productCode.isBlank() || quantity.isBlank()) {
 			System.out.println("항목을 입력해주세요");
