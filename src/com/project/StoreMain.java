@@ -42,28 +42,57 @@ public class StoreMain {
 	}
 	
 	private void u_signup() {
-		
-		System.out.println("========== 회원가입 ==========");
-		System.out.print("아이디를 입력하세요>> ");
-		String id = scn.nextLine();
-		System.out.print("비밀번호를 입력하세요>>");
-		String pw = scn.nextLine();
-		System.out.print("이름을 입력하세요>>");
-		String name = scn.nextLine();
-		System.out.println("==========================");
-		// 유효성 검사 추가 (예: 비밀번호 길이, 아이디 중복 체크 등)
-	    if (id.isEmpty() || pw.isEmpty() || name.isEmpty()) {
-	        System.out.println("모든 필드를 입력해야 합니다.");
-	        return;
+	    System.out.println("========== 회원가입 ==========");
+	    String id = "";
+	    while (true) {
+	        System.out.print("아이디를 입력하세요>> ");
+	        id = scn.nextLine();
+
+	        // 유효성 검사
+	        if (id.isEmpty()) {
+	            System.out.println("아이디를 입력해야 합니다.");
+	            continue;
+	        }
+
+	        // 아이디 중복 체크
+	        if (!udao.isIdUnique(id)) {
+	            System.out.println("이미 사용 중인 아이디입니다. 다른 아이디를 입력하세요.");
+	            continue;
+	        }
+	        break; // 유효한 아이디면 루프 종료
 	    }
-		
-		User user = signup(id,pw,name);
-		if(user != null) {
-			System.out.println("회원가입 되었습니다.");
-		}else {
+	    String pw ="";
+	    while (true) {
+	        System.out.print("비밀번호를 입력하세요>> ");
+	        pw = scn.nextLine();
+	        System.out.print("비밀번호를 확인하세요>> ");
+	        String confirmPw = scn.nextLine();
+
+	        if (pw.isEmpty() || confirmPw.isEmpty()) {
+	            System.out.println("비밀번호를 입력해야 합니다.");
+	            continue;
+	        }
+
+	        if (!pw.equals(confirmPw)) {
+	            System.out.println("비밀번호가 일치하지 않습니다. 다시 입력하세요.");
+	            continue;
+	        }
+	        break; // 비밀번호가 일치하면 루프 종료
+	    }
+
+	    System.out.print("이름을 입력하세요>> ");
+	    String name = scn.nextLine();
+	    System.out.println("==========================");
+
+	    User user = signup(id, pw, name);
+	    if (user != null) {
+	        System.out.println("회원가입 되었습니다.");
+	    } else {
 	        System.out.println("회원가입 실패. 다시 시도해 주세요.");
 	    }
 	}
+
+
 
 	private User login(String id, String pw) {
 		return udao.login(id,pw);

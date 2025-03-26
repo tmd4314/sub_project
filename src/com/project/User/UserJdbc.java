@@ -58,6 +58,34 @@ public class UserJdbc {
 		return null; //회원가입 실패
 	}
 	
+	//회원 중복 체크
+	public boolean isIdUnique(String id) {
+	    Connection conn = getConnect();
+	    String sql = "SELECT COUNT(*) FROM tbl_user WHERE user_id = ?";
+	    
+	    try {
+	        PreparedStatement stmt = conn.prepareStatement(sql);
+	        stmt.setString(1, id);
+	        ResultSet rs = stmt.executeQuery();
+	        
+	        if (rs.next()) {
+	            return rs.getInt(1) == 0; // 0이면 중복되지 않음
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (conn != null) {
+	                conn.close();
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    
+	    return false; // 오류 발생 시 중복 처리
+	}
+	
 	//로그인
 	public User login(String id, String pw) {
 		Connection conn = getConnect();
