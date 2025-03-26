@@ -13,8 +13,10 @@ create table product (
      user_id             varchar2(10) not null,
      write_date        date default sysdate,
      view_cnt         number default 0,
-     buy              number default 0
+     quantity         number default 0
 );
+
+
 
 --리뷰
 create table review (
@@ -284,8 +286,6 @@ SELECT * FROM dual;
     INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', '홍길동');
     
 commit;
-
-
 
 select *
 from   tbl_user;
