@@ -43,7 +43,7 @@ public class StoreMain {
 	
 	private void u_signup() {
 		
-		System.out.println("====== 회원가입 ============");
+		System.out.println("========== 회원가입 ==========");
 		System.out.print("아이디를 입력하세요>> ");
 		String id = scn.nextLine();
 		System.out.print("비밀번호를 입력하세요>>");
@@ -119,7 +119,13 @@ public class StoreMain {
 		Product product = new Product();
 		product.setProductCode(productCode);
         product.setProductName(productName);
-        product.setPrice(Integer.parseInt(price));
+        try {
+        	product.setPrice(Integer.parseInt(price));
+        }catch (NumberFormatException e) {
+	        System.out.println("수량은 숫자로 입력해야 합니다.");
+	        return; // 잘못된 입력인 경우 메소드 종료
+	    }
+        
         
         boolean inserted = pdao.insert(product, currentUser.getUserId());
         
@@ -176,13 +182,13 @@ public class StoreMain {
 	            continue; // 상품이 없으면 반복
 	        }
 			for(Product pr : ilist) {
-				System.out.println("=========" + pr.getProductName() + "==========");
+				System.out.println("========= " + pr.getProductName() + " ==========");
 				System.out.println(pr.showListInfo());
 			}
 			System.out.println("----------------------------");
-			System.out.println("1.리뷰 2.나가기");
+			System.out.println("1.입고 2.리뷰 3.나가기");
 			System.out.print("선택>> ");
-			int menu = 2;
+			int menu = 3;
 			while(true) {
 				try {
 					menu = Integer.parseInt(scn.nextLine());
@@ -194,16 +200,49 @@ public class StoreMain {
 			}	
 			switch(menu) {
 			case 1:
-				review();
+				restock();
 				run = false;
 				break;
 			case 2:
+				review();
+				run = false;
+				break;
+			case 3:
 				run = false;
 				break;
 			default:
 				System.out.println("메뉴를 다시 선택하세요.");
 			}
 		}
+	}
+	
+	private void restock() {
+		System.out.print("상품코드 입력>> ");
+		String productCode = scn.nextLine();
+		System.out.print("입고할 재고 입력>> ");
+		String quantity = scn.nextLine();
+		if(productCode.isBlank() || quantity.isBlank()) {
+			System.out.println("항목을 입력해주세요");
+			return;
+		}
+		
+		Product product = new Product();
+		product.setProductCode(productCode);
+		
+		try {
+			product.setQuantity(Integer.parseInt(quantity));
+		}catch (NumberFormatException e) {
+	        System.out.println("수량은 숫자로 입력해야 합니다.");
+	        return; // 잘못된 입력인 경우 메소드 종료
+	    }
+		
+		if(pdao.restock(product)) {
+			System.out.println("입고 성공");
+		}else {
+			System.out.println("입고 실패");
+		}
+		
+		
 	}
 	
 	private void re_write() {
@@ -250,7 +289,13 @@ public class StoreMain {
 			return;
 		}
 		Review review = new Review();
-		review.setReno(Integer.parseInt(reno));
+		try {
+			review.setReno(Integer.parseInt(reno));
+		}catch (NumberFormatException e) {
+	        System.out.println("수량은 숫자로 입력해야 합니다.");
+	        return; // 잘못된 입력인 경우 메소드 종료
+	    }
+		
 		review.setRevconte(revconte);
 		
 		boolean modified = rvdao.modify(review, currentUser.getUserId());
@@ -271,7 +316,13 @@ public class StoreMain {
 		}
 		
 		Review review = new Review();
-		review.setReno(Integer.parseInt(reno));
+		try {
+			review.setReno(Integer.parseInt(reno));
+		}catch (NumberFormatException e) {
+	        System.out.println("수량은 숫자로 입력해야 합니다.");
+	        return; // 잘못된 입력인 경우 메소드 종료
+	    }
+		
 		boolean redeleted = rvdao.redelete(review, currentUser.getUserId());
 		
 		if(redeleted) {
@@ -323,14 +374,15 @@ public class StoreMain {
 		int currentPage = 1;
 		boolean run = true;
 		while(run) {
-			System.out.println("=========== 상품목록 ===================");
+			System.out.println("================== 상품목록 ===================");
 			System.out.println("상품코드  상품명  등록자  등록일자");
-			System.out.println("--------------------------------------");
+			System.out.println("---------------------------------------------");
 			List<Product> list = searchList("", currentPage, pageSize);
 			for(Product pr : list) {
-				System.out.println(pr.showList());
+				String stockStatus = pr.getQuantity() == 0 ? " (매진)" : "";
+				System.out.println(pr.showList() + stockStatus);
 			}
-			System.out.println("-------------------------------------");
+			System.out.println("---------------------------------------------");
 			System.out.println("1.상품정보 2.상품검색 3.이전 4.다음 5.나가기");
 			System.out.print("선택>> ");
 			int menu = 5;
@@ -388,7 +440,12 @@ public class StoreMain {
 		Product product = new Product();
 		product.setProductCode(productCode);
 		product.setProductName(productName);
-		product.setPrice(Integer.parseInt(price));
+		try {
+			product.setPrice(Integer.parseInt(price));
+		}catch (NumberFormatException e) {
+	        System.out.println("수량은 숫자로 입력해야 합니다.");
+	        return; // 잘못된 입력인 경우 메소드 종료
+	    }
 		
 		if(pdao.update(product)) {
 			System.out.println("수정성공");
@@ -418,17 +475,68 @@ public class StoreMain {
 	private void out() {
 		System.out.print("구매할 상품명>> ");
 		String productName = scn.nextLine();
-		System.out.print("구매할 가격지불>> ");
-		String price = scn.nextLine();
-		if(productName.isBlank() || price.isBlank()) {
+		System.out.print("구매할 수량>> ");
+		String quati = scn.nextLine();
+		if(productName.isBlank() || quati.isBlank()) {
 			System.out.println("항목을 입력해주세요.");
+			return;
 		}
 		
-		if(pdao.check(productName, Integer.parseInt(price))) {
-			pdao.updatePurchase(productName);
-			System.out.println("판매완료");
-		}else {
-			System.out.println("가격이 맞지 않습니다.");
+		//상품 정보 확인
+		Product product = pdao.getProductByName(productName);
+		if(product == null) {
+			System.out.println("상품이 존재하지 않습니다.");
+			return;
+		}
+		
+		int quatity = 0;
+		
+		try {
+			quatity = Integer.parseInt(quati);
+		}catch (NumberFormatException e) {
+	        System.out.println("수량은 숫자로 입력해야 합니다.");
+	        return; // 잘못된 입력인 경우 메소드 종료
+	    }
+		
+		
+		int price = product.getPrice();
+		
+		int totalprice = price * quatity;
+		
+		if(product.getQuantity() < quatity) {
+			if (product.getQuantity() == 0) {
+                System.out.println("해당 상품은 매진되었습니다.");
+            } else {
+                System.out.println("현재 재고: " + product.getQuantity() + "개" +"\n" 
+                                 + "수량에 맞춰 구매해주세요.");
+            }
+			return;
+		}
+		
+		while(true) {
+			String yon = "";
+			System.out.printf("%d원 지불 하시겠습니가? (y/n)", totalprice);
+			yon = scn.nextLine();
+			
+			if(yon.equalsIgnoreCase("y")) {
+				if(pdao.sell(productName, quatity)) {
+					System.out.println("판매되었습니다.");
+					product = pdao.getProductByName(productName); // 재고 업데이트 후 다시 조회
+					if (product.getQuantity() == 0) {
+		                System.out.println("매진되었습니다.");
+		            } else {
+		                System.out.println("남은 재고: " + product.getQuantity() + "개");
+		            }
+				}else {
+					System.out.println("판매할 수 없습니다.");
+				}
+				break;
+			} else if(yon.equalsIgnoreCase("n")) {
+				System.out.println("판매가 취소 되었습니다.");
+				break;
+			} else {
+				System.out.println("y 혹은 n 만 입력해주세요.");
+			}
 		}
 	}
 		

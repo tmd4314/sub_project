@@ -12,17 +12,17 @@ public class Product {
 	private String userName;
 	private String writeDate;
 	private int viewCnt;
-	private int buy;
+	private int quantity;
 	private List<Review> reviews;
 	
-	public Product(String productCode, String productName, int price, String userName, String writeDate, int viewCnt, int buy) {
+	public Product(String productCode, String productName, int price, String userName, String writeDate, int viewCnt, int quantity ) {
 		this.productCode = productCode;
 		this.productName = productName;
 		this.price = price;
 		this.userName = userName;
 		this.writeDate = writeDate;
 		this.viewCnt = viewCnt;
-		this.buy = buy;
+		this.quantity  = quantity ;
 	}
 	public Product() {
 		reviews = new ArrayList<>();
@@ -45,7 +45,7 @@ public class Product {
 		}
 		return "상품코드: " + productCode + " 상품명: " + productName + "\n" + "가격: " + price + "원" + " 등록자: " + userName
 				+ "\n" + "등록일자: " + datePart + " 조회수: "+ viewCnt + "\n"
-				+"구입 횟수: " + buy +"회" + "\n"
+				+"수량: " + quantity  +"개" + "\n"
 				+ "============ 리뷰 ============" + "\n" 
 				+"목록 " + "리뷰내용   " + "작성자" +"\n"
 				+ reviewList.toString();
@@ -87,10 +87,10 @@ public class Product {
 	public void setViewCnt(int viewCnt) {
 		this.viewCnt = viewCnt;
 	}
-	public int getBuy() {
-		return buy;
+	public int getQuantity () {
+		return quantity ;
 	}
-	public void setBuy(int buy) {
-		this.buy = buy;
+	public void setQuantity (int quantity ) {
+		this.quantity  = quantity ;
 	}
 }

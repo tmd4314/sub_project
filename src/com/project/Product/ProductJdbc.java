@@ -55,6 +55,42 @@ public class ProductJdbc {
 			return userName;
 		}
 		
+		//상품 정보 조회
+		public Product getProductByName(String productName) {
+			Connection conn = getConnect();
+			String sql ="select product_code, "
+					   + "      product_name, "
+					   + "      price, "
+					   + "      quantity "
+					   + "from  product "
+					   + "where product_name =?";
+			try {
+				PreparedStatement stmt = conn.prepareStatement(sql);
+				stmt.setString(1, productName);
+				ResultSet rs = stmt.executeQuery();
+				if(rs.next()) {
+					Product product = new Product();
+					product.setProductCode(rs.getString("product_code"));
+					product.setProductName(rs.getString("product_name"));
+					product.setPrice(rs.getInt("price"));
+					product.setQuantity(rs.getInt("quantity"));
+					return product;
+				}
+			}catch (SQLException e) {
+		        e.printStackTrace();
+		    } finally {
+		        try {
+		            if (conn != null) {
+		                conn.close();
+		            }
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+			
+			return null;
+		}
+		
 		// 등록
 		public boolean insert(Product product, String userId) {
 			String userName = getUserName(userId);
@@ -156,22 +192,62 @@ public class ProductJdbc {
 			return false;
 		}
 		
-		//판매
-		public boolean check(String productName, int price) {
+		
+		//입고
+		public boolean restock(Product product) {
+		    Connection conn = getConnect();
+		    String sql = "UPDATE product "
+		    		   + "SET    quantity = quantity + ? "
+		    		   + "WHERE  product_code = ?";
+		    
+		    try {
+		        PreparedStatement pstmt = conn.prepareStatement(sql);
+		        pstmt.setInt(1, product.getQuantity());
+		        pstmt.setString(2, product.getProductCode());
+		        int r = pstmt.executeUpdate();
+		        return r > 0; // 성공적으로 업데이트되었는지 확인
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    } finally {
+		        try {
+		            if (conn != null) {
+		                conn.close();
+		            }
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		    return false;
+		}
+		
+		//판매(출고)
+		public boolean sell(String productName, int quantity) {
 			Connection conn = getConnect();
-			String sql = "select product_name, "
-					   + "       price "
+			String sql = "select product_code, "
+					   + "       price,"
+					   + "       quantity "
 					   + "from   product "
 					   + "where  product_name = ?";
+			
+			String updatesql = "UPDATE  product "
+					         + "SET     quantity = quantity - ? "
+					         + "WHERE   product_code = ?";
 			try {
-				PreparedStatement stmt = conn.prepareStatement(sql);
-				stmt.setString(1, productName);
-				ResultSet rs = stmt.executeQuery();
+				PreparedStatement cstmt = conn.prepareStatement(sql);
+				cstmt.setString(1, productName);
+				ResultSet rs = cstmt.executeQuery();
 				if(rs.next()) {
-					String dbproductName = rs.getString("product_name");
-					int dbprice = rs.getInt("price");
-					
-					return dbproductName.equals(productName) && dbprice == price;
+					int avquantity = rs.getInt("quantity");
+					String productcode = rs.getString("product_code");
+					if(avquantity >= quantity) {
+						PreparedStatement stmt = conn.prepareStatement(updatesql);
+						stmt.setInt(1, quantity);
+						stmt.setString(2, productcode);
+						int r = stmt.executeUpdate();
+						if(r > 0) {
+							return true;
+						}
+					}
 				}
 			} catch (SQLException e) {
 		        e.printStackTrace();
@@ -186,29 +262,6 @@ public class ProductJdbc {
 		    }
 			return false;
 		}
-
-		public void updatePurchase(String productName) {
-			Connection conn = getConnect();
-			String sql = "update product "
-					   + "set    buy = nvl(buy, 0) + 1 "
-					   + "where  product_name = ?";
-		    
-		    try{
-		    	PreparedStatement pstmt = conn.prepareStatement(sql);
-		        pstmt.setString(1, productName);
-		        pstmt.executeUpdate(); // 구매 횟수 증가 실행
-		    } catch (SQLException e) {
-		        e.printStackTrace();
-		    } finally {
-		        try {
-		            if (conn != null) {
-		                conn.close();
-		            }
-		        } catch (SQLException e) {
-		            e.printStackTrace();
-		        }
-		    }
-		}
 		
 		// 목록
 		public List<Product> list(int currentPage, int pageSize) {
@@ -220,19 +273,22 @@ public class ProductJdbc {
 		    		     + "       product_name, "
 		    		     + "       price, "
 		    		     + "       user_id, "
-		    		     + "       write_date "
+		    		     + "       write_date,"
+		    		     + "       quantity "
 		    		     + "FROM ( "
 		                 + "SELECT a.product_code, "
 		                 + "       a.product_name, "
 		                 + "       a.price, "
 		                 + "       a.user_id, "
-		                 + "       a.write_date "
+		                 + "       a.write_date, "
+		                 + "       a.quantity "
 		                 + ", ROWNUM rnum FROM ( "
 		                 + "SELECT product_code, "
 		                 + "       product_name, "
 		                 + "       price, "
 		                 + "       user_id, "
-		                 + "       write_date "
+		                 + "       write_date, "
+		                 + "       quantity "
 		                 + " FROM product ORDER BY product_code "
 		                 + ") a WHERE ROWNUM <= ?) "
 		                 + "WHERE rnum > ?";
@@ -249,6 +305,7 @@ public class ProductJdbc {
 		            product.setPrice(rs.getInt("price"));
 		            product.setUserName(rs.getString("user_id"));  // 등록자
 		            product.setWriteDate(rs.getString("write_date"));
+		            product.setQuantity(rs.getInt("quantity"));
 		            productList.add(product);
 		        }
 		    } catch (SQLException e) {
@@ -327,7 +384,7 @@ public class ProductJdbc {
 	    		     + "           p.user_id, "
 	    		     + "           p.write_date, "
 	    		     + "           p.view_cnt, "
-	    		     + "           p.buy, "
+	    		     + "           p.quantity, "
 	    		     + "           r.review_no, "
 	    		     + "           r.review_content, "
 	    		     + "           r.user_id as reviewer_id "
@@ -350,7 +407,7 @@ public class ProductJdbc {
 		                product.setUserName(rs.getString("user_id"));  // 등록자
 		                product.setWriteDate(rs.getString("write_date"));
 		                product.setViewCnt(rs.getInt("view_cnt"));
-		                product.setBuy(rs.getInt("buy"));
+		                product.setQuantity(rs.getInt("quantity"));
 		            }
 		            
 		        	String revconte = rs.getString("review_content");
