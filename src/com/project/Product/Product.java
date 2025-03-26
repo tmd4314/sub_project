@@ -47,7 +47,7 @@ public class Product {
 				+ "\n" + "등록일자: " + datePart + " 조회수: "+ viewCnt + "\n"
 				+"수량: " + quantity  +"개" + "\n"
 				+ "============ 리뷰 ============" + "\n" 
-				+"목록 " + "리뷰내용   " + "작성자" +"\n"
+				+"목록      " + "리뷰내용      " + "작성자" +"\n"
 				+ reviewList.toString();
 	}
 	

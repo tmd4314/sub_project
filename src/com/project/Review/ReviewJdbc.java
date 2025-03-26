@@ -21,40 +21,9 @@ public class ReviewJdbc {
 		}
 		return null;
 	}
-	
-	// 사용자 이름 조회
-	private String getUserName(String userid) {
-		Connection conn = getConnect();
-		String userName = null;
-		String query = "select user_name "
-				     + "from   tbl_user "
-				     + "where  user_id = ? ";
-		try {
-			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, userid);
-			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()) {
-				userName = rs.getString("user_name");
-			}
-		}catch (SQLException e) {
-	        e.printStackTrace();
-	    } finally {
-	        try {
-	            if (conn != null) {
-	                conn.close();
-	            }
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	        }
-	    }
-	
-		return userName;
-	}
-	
 
 	// 리뷰 작성
 	public boolean write(Review review, String userid) {
-		String userName = getUserName(userid);
 		Connection conn = getConnect();
 		String sql = "insert into review(review_no, "
 				   + "                   product_code, "
@@ -68,7 +37,7 @@ public class ReviewJdbc {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, review.getProcode());
 			stmt.setString(2, review.getRevconte());
-			stmt.setString(3, userName);
+			stmt.setString(3, userid);
 			int r = stmt.executeUpdate();
 			if( r > 0) {
 				return true;
@@ -89,7 +58,6 @@ public class ReviewJdbc {
 	
 	//리뷰 수정(본인 외엔 불가능)
 	public boolean modify(Review review, String userid) {
-		String userName = getUserName(userid);
 		Connection conn = getConnect();
 		String sql = "update review "
 				   + "set    review_content = nvl(?, review_content) "
@@ -99,7 +67,7 @@ public class ReviewJdbc {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, review.getRevconte());
 			stmt.setInt(2, review.getReno());
-			stmt.setString(3, userName);
+			stmt.setString(3, userid);
 			int r = stmt.executeUpdate();
 			if(r > 0) {
 				return true;
@@ -120,7 +88,6 @@ public class ReviewJdbc {
 	
 	//리뷰 삭제(본인 외엔 불가능)
 	public boolean redelete(Review review, String userid) {
-		String userName = getUserName(userid);
 		Connection conn = getConnect();
 		String sql = "delete from review "
 				   + "where  review_no = ?"
@@ -128,7 +95,7 @@ public class ReviewJdbc {
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, review.getReno());
-			stmt.setString(2, userName);
+			stmt.setString(2, userid);
 			int r = stmt.executeUpdate();
 			if(r > 0) {
 				return true;

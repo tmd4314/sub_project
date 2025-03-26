@@ -52,6 +52,7 @@ values('tmd4314',
        'dltmdals1@',
       '이승민');
 
+
 -- 대용량 데이터 삽입
 INSERT ALL
     INTO product (product_code, product_name, price, user_id, write_date) VALUES ('P001', '따뜻한 코트', 200000, '홍길동', current_timestamp)
@@ -106,184 +107,190 @@ INSERT ALL
     INTO product (product_code, product_name, price, user_id, write_date) VALUES ('P050', '여성 웜톤 코트', 300000, '이승민', current_timestamp)
 SELECT * FROM dual;
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P001', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P001', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P001', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P001', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P001', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P001', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P001', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P001', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P001', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P001', '리뷰 테스트중입니다.', 'tmd4314');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P002', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P002', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P002', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P002', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P002', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P002', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P002', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P002', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P002', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P002', '리뷰 테스트중입니다.', 'tmd4314');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P003', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P003', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P003', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P003', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P003', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P003', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P003', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P003', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P003', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P003', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P004', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P004', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P004', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P004', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P004', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P004', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P004', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P004', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P004', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P004', '리뷰 테스트중입니다.', 'tmd4314');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P005', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P005', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P005', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P005', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P005', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P005', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P005', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P005', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P005', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P005', '리뷰 테스트중입니다.', 'tmd4314');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P006', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P006', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P006', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P006', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P006', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P006', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P006', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P006', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P006', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P006', '리뷰 테스트중입니다.', 'tmd4314');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P007', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P007', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P007', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P007', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P007', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P007', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P007', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P007', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P007', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P007', '리뷰 테스트중입니다.', 'user02');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P008', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P008', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P008', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P008', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P008', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P008', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P008', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P008', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P008', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P008', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P009', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P009', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P009', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P009', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P009', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P009', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P009', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P009', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P009', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P009', '리뷰 테스트중입니다.', 'user02');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P010', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P010', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P010', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P010', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P010', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P010', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P010', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P010', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P010', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P010', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P011', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P011', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P011', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P011', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P011', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P011', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P011', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P011', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P011', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P011', '리뷰 테스트중입니다.', 'user02');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P012', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P012', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P012', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P012', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P012', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P012', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P012', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P012', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P012', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P012', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P013', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P013', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P013', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P013', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P013', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P013', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P013', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P013', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P013', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P013', '리뷰 테스트중입니다.', 'user02');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P014', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P014', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P014', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P014', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P014', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P014', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P014', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P014', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P014', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P014', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P015', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P015', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P015', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P015', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P015', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P015', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P015', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P015', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P015', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P015', '리뷰 테스트중입니다.', 'user03');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P016', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P016', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P016', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P016', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P016', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P016', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P016', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P016', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P016', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P016', '리뷰 테스트중입니다.', 'tmd4314');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P017', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P017', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P017', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P017', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P017', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P018', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P018', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P018', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P018', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P018', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P017', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P017', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P017', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P017', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P017', '리뷰 테스트중입니다.', 'user02');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P019', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P019', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P019', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P019', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P019', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P018', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P018', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P018', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P018', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P018', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P020', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P020', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P020', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P020', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P020', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P019', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P019', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P019', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P019', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P019', '리뷰 테스트중입니다.', 'user02');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P021', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P021', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P021', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P021', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P021', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P020', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P020', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P020', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P020', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P020', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P022', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P022', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P022', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P022', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P022', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P021', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P021', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P021', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P021', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P021', '리뷰 테스트중입니다.', 'user02');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P023', '리뷰 테스트중입니다.', '홍길동');
-   INSERT  INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P023', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P023', '리뷰 테스트중입니다.', '홍길동');
-     INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P023', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P023', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P022', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P022', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P022', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P022', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P022', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P024', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P024', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P024', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P024', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P024', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P023', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P023', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P023', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P023', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P023', '리뷰 테스트중입니다.', 'user02');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P025', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P025', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P025', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P025', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P025', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P024', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P024', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P024', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P024', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P024', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P026', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P026', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P026', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P026', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P026', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P025', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P025', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P025', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P025', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P025', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P027', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P027', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P027', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P027', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P027', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P026', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P026', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P026', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P026', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P026', '리뷰 테스트중입니다.', 'tmd4314');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P028', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P028', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P028', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P028', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P028', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P027', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P027', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P027', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P027', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P027', '리뷰 테스트중입니다.', 'user02');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P029', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P029', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P029', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P029', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P029', '리뷰 테스트중입니다.', '이승민');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P028', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P028', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P028', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P028', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P028', '리뷰 테스트중입니다.', 'user01');
 
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', '홍길동');
-    INSERT  INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', '홍길동');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', '이승민');
-    INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', '홍길동');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P029', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P029', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P029', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P029', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P029', '리뷰 테스트중입니다.', 'user02');
+
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', 'user01');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', 'user02');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', 'user03');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', 'tmd4314');
+INSERT INTO review (review_no, product_code, review_content, user_id) VALUES (review_seq.NEXTVAL, 'P030', '리뷰 테스트중입니다.', 'user01');
+
+
+
+
+    
     
 commit;
 

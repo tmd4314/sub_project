@@ -54,6 +54,7 @@ public class ProductJdbc {
 		    }
 			return userName;
 		}
+
 		
 		//상품 정보 조회
 		public Product getProductByName(String productName) {
