@@ -211,10 +211,10 @@ public class StoreMain {
 	            continue; // 상품이 없으면 반복
 	        }
 			for(Product pr : ilist) {
-				System.out.println("========= " + pr.getProductName() + " ==========");
+				System.out.println("============= " + pr.getProductName() + " ==============");
 				System.out.println(pr.showListInfo());
 			}
-			System.out.println("----------------------------");
+			System.out.println("-----------------------------------");
 			System.out.println("1.입고 2.리뷰 3.나가기");
 			System.out.print("선택>> ");
 			int menu = 3;

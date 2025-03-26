@@ -39,15 +39,15 @@ public class Product {
 	}
 	public String showListInfo() {
 		String datePart = writeDate.split(" ")[0];
-		String stock = quantity == 0 ? " (매진)" : quantity +"";
+		String stock = quantity == 0 ? "(매진)" : quantity +"개";
 		StringBuilder reviewList = new StringBuilder();
 		for(Review review :reviews) {
 			reviewList.append(review.showListInfo()).append("\n"); // 각 리뷰의 정보를 추가
 		}
-		return "상품코드: " + productCode + " 상품명: " + productName + "\n" + "가격: " + price + "원" + " 등록자: " + userName
-				+ "\n" + "등록일자: " + datePart + " 조회수: "+ viewCnt + "\n"
-				+"수량:" + stock +"\n"
-				+ "============ 리뷰 ============" + "\n" 
+		return "상품코드: " + productCode + "        "+ "상품명: " + productName + "\n" + "가격:" + " " + price + "원" + "      " + "  " + "등록자: " + userName
+				+ "\n" + "등록일자: " + datePart + "  조회수:"+ viewCnt + "\n"
+				+"수량: " + stock +"\n"
+				+ "=============== 리뷰 ================" + "\n" 
 				+"목록      " + "리뷰내용      " + "작성자" +"\n"
 				+ reviewList.toString();
 	}
