@@ -15,7 +15,7 @@ public class Product {
 	private int quantity;
 	private List<Review> reviews;
 	
-	public Product(String productCode, String productName, int price, String userName, String writeDate, int viewCnt, int quantity ) {
+	public Product(String productCode, String productName, int price, String userName, String writeDate, int viewCnt, int quantity) {
 		this.productCode = productCode;
 		this.productName = productName;
 		this.price = price;

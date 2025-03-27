@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class ResidentJdbc {
 	Connection getConnect() {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.0.35:1521:xe";
 		String userId = "scott";
 		String userPw = "tiger";
 		
