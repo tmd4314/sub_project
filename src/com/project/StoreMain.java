@@ -136,6 +136,7 @@ public class StoreMain {
 	private void add() {
 		System.out.print("등록할 상품코드 입력>> ");
 		String productCode = scn.nextLine();
+		
 		System.out.print("등록할 상품명 입력>> ");
 		String productName = scn.nextLine();
 		System.out.print("등록할 상품가격 입력>> ");
@@ -645,7 +646,7 @@ public class StoreMain {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public void run() {
 		boolean run = true;
 		StoreMain app = new StoreMain();
 		int menu = 3;
