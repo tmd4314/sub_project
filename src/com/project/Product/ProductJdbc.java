@@ -92,6 +92,23 @@ public class ProductJdbc {
 			return null;
 		}
 		
+		// 상품 코드 중복 체크 메소드
+		private boolean isProductCodeExists(String productCode) {
+			Connection conn = getConnect();
+		    String sql = "SELECT COUNT(*) FROM product WHERE product_code = ?";
+		    try{
+		    	PreparedStatement pstmt = conn.prepareStatement(sql);
+		        pstmt.setString(1, productCode);
+		        ResultSet rs = pstmt.executeQuery();
+		        if (rs.next()) {
+		            return rs.getInt(1) > 0; // 1보다 크면 중복
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		    return false; // 중복 아님
+		}
+		
 		// 등록
 		public boolean insert(Product product, String userId) {
 			String userName = getUserName(userId);
@@ -99,6 +116,11 @@ public class ProductJdbc {
 				System.out.println("사용자를 찾을수 없습니다.");
 				return false;
 			}
+			// 중복 체크
+		    if (isProductCodeExists(product.getProductCode())) {
+		        System.out.println("중복된 상품코드입니다.");
+		        return false;
+		    }
 			Connection conn = getConnect();
 			String insert = "insert into product(product_code, "
 					     + "                    product_name, "
